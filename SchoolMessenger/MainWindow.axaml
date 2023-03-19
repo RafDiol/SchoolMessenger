@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ext="clr-namespace:SchoolMessenger.Core"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SchoolMessenger.MainWindow"
+        Title="School Messenger">
+
+
+  <Window.Resources>
+    <ext:PathToBitmapConverter x:Key="pathToBitmapConverter"/>
+  </Window.Resources>
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition MinWidth="150" Width="1*"/>
+      <ColumnDefinition Width="4"/>
+      <ColumnDefinition MinWidth="150" Width="2*"/>
+    </Grid.ColumnDefinitions>
+
+    <!--1st Column-->
+    
+    <DockPanel Background="DarkCyan">
+      <TextBlock Text="Conversations"
+               Grid.Column="0"
+               DockPanel.Dock="Top" 
+               HorizontalAlignment="Center"/>
+
+      <ListBox Grid.Column="0"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Name="convoList">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Border Background="Green" CornerRadius="17" Padding="5">
+              <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+                <Ellipse Height="100" Width="100">
+                  <Ellipse.Fill>
+                    <ImageBrush RenderOptions.BitmapInterpolationMode="MediumQuality"
+                                AlignmentX="Center" AlignmentY="Center" Stretch="UniformToFill"
+                                Source="{Binding ImagePath, Converter={StaticResource pathToBitmapConverter}}"/>
+                  </Ellipse.Fill>
+                </Ellipse>
+
+                <TextBlock Text="{Binding Name}" />
+
+              </StackPanel>
+            </Border>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </DockPanel>
+
+    <!--2nd Column-->
+
+    <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
+
+    <!--3rd Column-->
+    
+    
+
+  </Grid>
+  
+</Window>
