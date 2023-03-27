@@ -27,9 +27,15 @@ namespace SchoolMessenger.Models
             set { _imagePath = value; OnPropertyChanged(); }
         }
 
-        public string Id
+        public string UUID
         {
-            get { return _id; }
+            get { return _uuid; }
+        }
+
+        public string receiverUUID
+        {
+            get { return _receiverUUID; }
+            set { _receiverUUID = value; }
         }
 
         public ConvoType Type
@@ -38,16 +44,17 @@ namespace SchoolMessenger.Models
             set { _type = value; OnPropertyChanged(); }
         }
 
+        private string _receiverUUID;
         private string _name;
         private string _imagePath;
-        private string _id;
+        private string _uuid;
         private ConvoType _type;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public ChatConvoItem(string name, string imagePath, ConvoType type) 
         {
-            _id = IDGenerator.generateID();
+            _uuid = IDGenerator.generateID();
             _name = name;
             _imagePath = imagePath;
             _type = type;

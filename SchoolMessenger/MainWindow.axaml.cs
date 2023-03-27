@@ -21,26 +21,28 @@ namespace SchoolMessenger
 
             chatConvos.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler((a, b) => { updateConvoList(); } );
 
-            ChatConvoItem item1 = new ChatConvoItem("Test 1", "C:\\Users\\GAMING PC\\OneDrive\\Εικόνες\\background\\linux.png", ConvoType.Dm);
+            ChatConvoItem item1 = new ChatConvoItem("Test 1", "", ConvoType.Dm);
             ChatConvoItem item2 = new ChatConvoItem("Test 2", "", ConvoType.Dm);
             ChatConvoItem item3 = new ChatConvoItem("Test 3", "", ConvoType.Dm);
 
             chatConvos.Add(item1);
             chatConvos.Add(item2);
             chatConvos.Add(item3);
-            chatConvos.Add(item1);
-            chatConvos.Add(item2);
-            chatConvos.Add(item3); 
-            chatConvos.Add(item1);
-            chatConvos.Add(item2);
-            chatConvos.Add(item3);
-
-            //convoList.Items = chatConvos;
         }
 
         private void updateConvoList()
         {
             convoList.Items = chatConvos;
+        }
+
+        private void chatConvoListSelectionChanged(object sender, SelectionChangedEventArgs args)
+        {
+            ChatConvoItem? chatConvoItem = convoList.SelectedItem as ChatConvoItem;
+            
+            if (chatConvoItem != null)
+            {
+                chatbox.SetupComponentUI(chatConvoItem);
+            }
         }
     }
 }

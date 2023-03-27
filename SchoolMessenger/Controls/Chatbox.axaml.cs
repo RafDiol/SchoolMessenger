@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using SchoolMessenger.Models;
 
 namespace SchoolMessenger.Controls
 {
@@ -7,12 +8,16 @@ namespace SchoolMessenger.Controls
         public Chatbox()
         {
             InitializeComponent();
-            Init();
         }
 
-        private void Init()
+        public void SetupComponentUI(ChatConvoItem chatConvoItem)
         {
-            convoIcon
+            convoName.Text = chatConvoItem.Name;
+        }
+
+        public void sendMessage(MessageItem messageItem)
+        {
+
         }
     }
 }
