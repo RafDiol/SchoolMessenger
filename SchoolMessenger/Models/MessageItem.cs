@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolMessenger.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,18 @@ namespace SchoolMessenger.Models
 			get { return _senderName; }
 			set { _senderName = value; }
 		}
-		public string UUID
+
+		public string senderUUID
 		{
-			get { return _uuid; }
-			set { _uuid = value; }
+			get { return _senderUUID; }
+			set { _senderUUID = value; }
+		}
+
+
+		public string messageUUID
+		{
+			get { return _messageUUID; }
+			set { _messageUUID = value; }
 		}
 
 		public string Text
@@ -25,8 +34,9 @@ namespace SchoolMessenger.Models
 			set { _text = value; }
 		}
 
+        private string _senderUUID;
         private string _text;
         private string _senderName;
-        private string _uuid;
+        private string _messageUUID;
     }
 }

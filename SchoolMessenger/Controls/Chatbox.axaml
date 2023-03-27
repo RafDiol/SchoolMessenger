@@ -35,37 +35,46 @@
            FontSize="16"
            Text="@Username"
            VerticalAlignment="Center"/>
-    </StackPanel>
+      </StackPanel>
     
     
-    <ListBox x:Name="chatBox" Grid.Row="1">
+      <ListBox x:Name="chatBox" Grid.Row="1">
 		
-      <ListBox.ItemTemplate>
-        <DataTemplate>
-			<StackPanel>
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+			    <StackPanel>
 				
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-                    <Ellipse Height="100" Width="100">
-                    <Ellipse.Fill>
-                        <ImageBrush RenderOptions.BitmapInterpolationMode="MediumQuality"
-                                AlignmentX="Center" AlignmentY="Center" Stretch="UniformToFill"
-                                Source="{Binding ImagePath, Converter={StaticResource pathToBitmapConverter}}"/>
-                    </Ellipse.Fill>
-                    </Ellipse>
+                        <Ellipse Height="100" Width="100">
+                        <Ellipse.Fill>
+                            <ImageBrush RenderOptions.BitmapInterpolationMode="MediumQuality"
+                                    AlignmentX="Center" AlignmentY="Center" Stretch="UniformToFill"
+                                    Source="{Binding ImagePath, Converter={StaticResource pathToBitmapConverter}}"/>
+                        </Ellipse.Fill>
+                        </Ellipse>
 
-                    <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Name}" />
 
-                </StackPanel>
+                    </StackPanel>
 			
-		        <TextBlock Text="{Binding Text}"/>
-			</StackPanel>
+		            <TextBlock Text="{Binding Text}"/>
+			    </StackPanel>
 
-		</DataTemplate>
-      </ListBox.ItemTemplate>
+		    </DataTemplate>
+        </ListBox.ItemTemplate>
 		
-    </ListBox>
-	  
+      </ListBox>
+
+	  <StackPanel Orientation="Horizontal" 
+				  Grid.Row="2"
+				  HorizontalAlignment="Stretch">
+		  <TextBox HorizontalAlignment="Stretch" 
+				   Width="500"
+				   Watermark="Message..." x:Name="messageTxtBox"/>
+		  <Button Content="Send" Click="sendBtnClicked"/>
+	  </StackPanel>  
+	
   </Grid>
   
 </UserControl>

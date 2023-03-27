@@ -21,7 +21,7 @@ namespace SchoolMessenger
 
             chatConvos.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler((a, b) => { updateConvoList(); } );
 
-            ChatConvoItem item1 = new ChatConvoItem("Test 1", "", ConvoType.Dm);
+            ChatConvoItem item1 = new ChatConvoItem("Test 1", "C:\\Users\\rdiolatzis\\Downloads\\rabbit.jpg", ConvoType.Dm);
             ChatConvoItem item2 = new ChatConvoItem("Test 2", "", ConvoType.Dm);
             ChatConvoItem item3 = new ChatConvoItem("Test 3", "", ConvoType.Dm);
 
