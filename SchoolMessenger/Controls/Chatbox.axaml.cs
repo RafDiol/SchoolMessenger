@@ -14,10 +14,9 @@ namespace SchoolMessenger.Controls
             InitializeComponent();
         }
 
-        public void SetupComponentUI(ChatConvoItem chatConvoItem, string _userUUID)
+        public void SetupComponentUI(ChatConvoItem chatConvoItem)
         {
             convoName.Text = chatConvoItem.Name;
-            userUUID = _userUUID;
         }
 
         private void sendBtnClicked(object sender, RoutedEventArgs e)
