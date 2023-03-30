@@ -7,11 +7,13 @@ using SuperSimpleTcp;
 
 namespace SchoolMessenger.Core
 {
-    public class AccountManager
+    public class NetworkManager
     {
-        public static bool IsLoggedIn()
+        public string IPAddress;
+
+        public NetworkManager(int port) 
         {
-            throw new NotImplementedException();
+
         }
     }
 }
